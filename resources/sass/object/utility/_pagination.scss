@@ -1,0 +1,14 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+  @include mq_s() {
+    margin-top: 0;
+  }
+}
+.page-item {
+  padding: 10px;
+  &.active {
+    text-decoration: underline;
+  }
+}

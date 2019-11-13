@@ -1,0 +1,108 @@
+.c-btn {
+  border: none;
+  padding: 12px 20px;
+  font-size: $default;
+  background: $emerald;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: $shadow;
+  display: inline-block;
+  &:hover {
+    cursor: pointer;
+  }
+  &__primary {
+    background: $pink;
+  }
+  &__search {
+    padding: 12px 15px;
+    @include mq_s() {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  }
+  &:disabled {
+    cursor: not-allowed;
+  }
+  &--disabled {
+    background: $gray;
+  }
+}
+
+// -----------------------------------------------------------------
+// home画面の登録btn
+// -----------------------------------------------------------------
+.l-main__home .c-btn {
+  padding: 15px 80px;
+  margin-bottom: 5px;
+  font-size: 1.1em;
+  font-weight: bold;
+  @include mq_s() {
+    padding: 10px 30px;
+  }
+}
+
+// -----------------------------------------------------------------
+// form画面の登録btn
+// -----------------------------------------------------------------
+.p-form .c-btn {
+  text-align: right;
+  float: right;
+  margin-top: 5%;
+}
+
+.l-main__login .c-btn {
+  margin-bottom: 5%;
+  margin-top: 0;
+}
+
+// 子STEP登録フォーム追加ボタン
+.c-add_step-btn {
+  width: 40px;
+  height: 40px;
+  background: $light_blue;
+  border: $navy solid 2px;
+  border-radius: 30px;
+  display: block;
+  margin: 5% auto;
+  &:before, &:after {
+    content: '';
+    display: block;
+    background-color: $navy;
+    width: 25px;
+    height: 2px;
+    position: relative;
+    left: -2px;
+  }
+  &:after {
+    transform: rotateZ(90deg);
+    top: -1px;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// 子STEP登録フォーム削除ボタン
+.c-delete_step-btn {
+  width: 40px;
+  height: 40px;
+  background: rgb(255, 225, 225);
+  border: $pink solid 2px;
+  border-radius: 30px;
+  display: block;
+  margin: 5% auto 0 auto;
+  display: none;
+  &:before {
+    content: '';
+    display: block;
+    background-color: $pink;
+    width: 25px;
+    height: 3px;
+    position: relative;
+    left: -2px;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}

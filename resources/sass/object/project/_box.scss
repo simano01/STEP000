@@ -1,0 +1,162 @@
+// -----------------------------------------------------------------
+// base
+// -----------------------------------------------------------------
+.p-box {
+  width: 70%;
+  @include mq_m() {
+    width: 90%;
+    margin: 0 auto;
+  }
+  &__ornament {
+    margin: 0 auto 3% auto;
+    border: $navy solid 2px;
+    padding: 3%;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background: #fff;
+    &--b_none {
+      @include mq_s() {
+        border: none;
+        background: $light_blue;
+        padding: 0;
+      }
+    }
+    @include mq_s() {
+      margin: 0 auto 10% auto;
+    }
+  }
+  &__count {
+    text-align: right;
+  }
+  &__title {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-left: 1%;
+    margin-bottom: 3%;
+    @include mq_s() {
+      text-align: center;
+      &:after {
+        content: '';
+        width: 50px;
+        display: block;
+        margin: 5px auto 20px auto;
+        border: solid 2px $emerald;
+        border-radius: 3px;
+      }
+    }
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    &__item {
+      width: 31%;
+      box-sizing: border-box;
+      background: $light_blue;
+      margin: 1%;
+      @include mq_m() {
+        width: 48%;
+      }
+      @include mq_s() {
+        width: 100%;
+        margin: 2% 0;
+        background: #fff;
+        border-radius: 4px;
+        border: $navy solid 2px;
+      }
+      &__link {
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+        background: $light_blue;
+        padding: 2% 2% 3% 2%;
+        position: relative;
+        @include mq_s() {
+          background: #fff;
+          border-radius: 4px;
+        }
+        &:after {
+          font-family: "Font Awesome 5 Free";
+          content: '\f054';
+          font-weight: 900;
+          color: $emerald;
+          position: absolute;
+          right: 10px;
+          top: 35%;
+          font-size: 1.3em;
+          box-sizing: border-box;
+        }
+      }
+      &__title {
+        margin: 1% 0;
+        font-weight: bold;
+        font-size: 1.1em;
+        display: inline-block;
+      }
+      &__overview {
+        text-decoration: underline;
+        padding: 1% 0;
+        width: 93%;
+      }
+      &__progress {
+        display: flex;
+        justify-content: space-between;
+        display: 100%;
+      }
+      &__meter {
+        width: 85%;
+        height: 20px;
+        border: $navy solid 2px;
+        display: block;
+        &__content {
+          width: 80%;
+          height: 20px;
+          background: $navy;
+          display: block;
+        }
+      }
+    }
+    &__parameter {
+      display: block;
+      width: 90%;
+      background: #d3d3d3;
+      border-radius: 100px;
+      &__item {
+        display: inline-block;
+        width: 0%;
+        background: #224272;
+        border-radius: 100px;
+        &__num {
+          color: #fff;
+          display: block;
+          text-align: right;
+          margin-right: 5px;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}
+
+
+// -----------------------------------------------------------------
+// STEP一覧、プロフィール詳細のbox幅
+// -----------------------------------------------------------------
+.l-main__step-list .p-box,
+.l-main__profDetail .p-box {
+  width: 90%;
+  margin: 0 auto;
+}
+
+
+// -----------------------------------------------------------------
+// マイページのbox_item幅
+// -----------------------------------------------------------------
+.l-main__mypage .p-box__list {
+  &__item {
+    width: 48%;
+    @include mq_s() {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,108 @@
+// ==========================================================================
+// 変数
+// ==========================================================================
+
+// -----------------------------------------------------------------
+// color
+// -----------------------------------------------------------------
+$navy: #224272;
+$blue: #2d5591;
+$pink: #ce6c53;
+$emerald: #00a99d;
+$gray_blue: #6f85a8;
+$gray: #a9a9a9;
+$light_blue: #e4f4f4;
+$light_pink: rgba(255, 225, 225, 1);
+$light_white: rgba(255, 255, 255, 0.9);
+
+// -----------------------------------------------------------------
+// font-family
+// -----------------------------------------------------------------
+$en_default: 'Lato', sans-serif;
+$ja_default: 'M PLUS 1p', sans-serif;
+
+// -----------------------------------------------------------------
+// font-size
+// -----------------------------------------------------------------
+$s: .9em;
+$default: 1em;
+$m: 1.1em;
+$l: 1.2em;
+$xl: 1.3em;
+$lll: 1.4em;
+$g: 1.5em;
+$xg: 1.6em;
+$ggg: 2em;
+
+// -----------------------------------------------------------------
+// shadow
+// -----------------------------------------------------------------
+$shadow: 2px 2px 6px $gray;
+
+// -----------------------------------------------------------------
+// breakpoint
+// -----------------------------------------------------------------
+$breakpoints: (
+  'ss': 'screen and (max-width: 320px)',
+  'sm': 'screen and (max-width: 414px)',
+  'md_on': 'screen and (min-width: 415px) and (max-width: 768px)',
+  'md': 'screen and (max-width: 768px)',
+  'lg': 'screen and (max-width: 1000px)',
+  'xl': 'screen and (max-width: 1200px)',
+);
+
+// ==========================================================================
+// mixin
+// ==========================================================================
+@mixin mq_l($breakpoint: lg) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin mq_m($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin mq_m_on($breakpoint: md_on) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin mq_s($breakpoint: sm) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin mq_ss($breakpoint: ss) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+// ==========================================================================
+// base
+// ==========================================================================
+body {
+  width: 100%;
+  color: $navy;
+  background: $light_blue;
+  font-family: $ja_default;
+  font-size: $default;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+a {
+  color: $navy;
+  text-decoration: none;
+  transition: .3s;
+}
+
+a:hover {
+  cursor: pointer;
+}

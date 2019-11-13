@@ -1,0 +1,65 @@
+// -----------------------------------------------------------------
+// base
+// -----------------------------------------------------------------
+.p-hero {
+  text-align: center;
+  margin-top: 5%;
+  @include mq_s() {
+    margin-top: 10%;
+  }
+  &__subtitle {
+    font-size: 1.4em;
+    @include mq_m() {
+      font-size: 1.3em;
+    }
+    @include mq_s() {
+      font-size: 1.1em;
+    }
+  }
+  &__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4%;
+    line-height: 1.2;
+    @include mq_s() {
+      margin-bottom: 6%;
+    }
+    &__text {
+      font-size: 7em;
+      padding-right: 1%;
+      @include mq_m() {
+        font-size: 6em;
+      }
+      @include mq_s() {
+        font-size: 4.5em;
+      }
+    }
+    &__img {
+      width: 100px;
+      @include mq_m() {
+        width: 90px;
+      }
+      @include mq_s() {
+        width: 65px;
+      }
+    }
+  }
+  &__login-link {
+    padding: 1% 2% 1.5% 2%;
+    font-weight: bold;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// -----------------------------------------------------------------
+// home画面のSTEPってどんなサービス？
+// -----------------------------------------------------------------
+#describe_step {
+  padding-top: 70px;
+  @include mq_s() {
+    padding-top: 40px;
+  }
+}

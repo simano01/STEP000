@@ -1,0 +1,14 @@
+.c-two_colum {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 90%;
+  margin: 3% auto;
+  @include mq_m() {
+    display: block;
+    width: 100%;
+  }
+  @include mq_s() {
+    margin: 5% auto 10% auto;
+  }
+}

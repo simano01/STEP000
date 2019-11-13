@@ -1,0 +1,38 @@
+// -----------------------------------------------------------------
+// base
+// -----------------------------------------------------------------
+.p-search {
+  width: 97.5%;
+  margin: 2% auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: $navy solid 2px;
+  padding: 2%;
+  box-sizing: border-box;
+  border-radius: 4px;
+  @include mq_s() {
+    display: block;
+    border: none;
+    overflow: hidden;
+    margin: 2% auto 4% auto;
+  }
+  &__item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+    @include mq_s() {
+      display: block;
+      width: 100%;
+      position: relative;
+    }
+    &__title {
+      @include mq_m_on() {
+        text-align: right;
+        margin-right: 5px;
+        line-height: 1.5;
+      }
+    }
+  }
+}

@@ -1,0 +1,156 @@
+// -----------------------------------------------------------------
+// base
+// -----------------------------------------------------------------
+.l-header {
+  width: 100%;
+  height: 60px;
+  padding: 0 1.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  box-sizing: border-box;
+  transition: .3s;
+  z-index: 5;
+  @include mq_s() {
+    padding: 0 3%;
+    height: 50px;
+  }
+  &.active {
+    transition: .3s;
+    background: $light_white;
+  }
+}
+
+// -----------------------------------------------------------------
+// logo
+// -----------------------------------------------------------------
+.l-header__logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  &__text {
+    font-size: 35px;
+    margin-right: 3%;
+    font-weight: bold;
+    font-family: $en_default;
+    @include mq_s() {
+      font-size: 30px;
+    }
+  }
+  &__img {
+    width: 33px;
+    height: auto;
+    @include mq_s() {
+      font-size: 28px;
+    }
+  }
+}
+
+// -----------------------------------------------------------------
+// nav
+// -----------------------------------------------------------------
+.l-header__nav {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 400px;
+  height: 100vh;
+  padding-top: 50px;
+  transition: .5s;
+  background: $light_pink;
+  &.active {
+    transition: .5s;
+    transform: translateX(0%);
+    z-index: 2;
+    right: 0;
+  }
+  @include mq_m() {
+    width: 40%;
+  }
+  @include mq_s() {
+    width: 100%;
+  }
+}
+
+.l-header__menu {
+  &__link {
+    display: block;
+    padding: 20px 0 20px 135px;
+    font-weight: bold;
+    text-align: left;
+    @include mq_m() {
+      padding: 20px 0 20px 80px;
+    }
+    @include mq_s() {
+      padding: 20px 0 20px 120px;
+    }
+    @include mq_ss() {
+      padding: 20px 0 20px 90px;
+    }
+    &:hover {
+      background: $pink;
+    }
+    i {
+      margin-right: 20px;
+    }
+  }
+}
+
+.l-header__menu__trigger {
+  display: inline-block;
+  position: relative;
+  transition: all .4s;
+  box-sizing: border-box;
+  width: 40px;
+  height: 32px;
+  z-index: 3;
+  @include mq_s() {
+    width: 36px;
+    height: 27px;
+  }
+  span {
+    display: inline-block;
+    transition: all .4s;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: $navy;
+    border-radius: 4px;
+    &:nth-of-type(1) {
+      top: 0;
+    }
+    &:nth-of-type(2) {
+      top: 14px;
+      @include mq_s() {
+        top: 11px;
+      }
+    }
+    &:nth-of-type(3) {
+      bottom: 0;
+    }
+  }
+  &.active span {
+    &:nth-of-type(1) {
+      transform: translateY(12px) rotate(-45deg);
+      @include mq_s() {
+        transform: translateY(9px) rotate(-45deg);
+      }
+    }
+    &:nth-of-type(2) {
+      opacity: 0;
+    }
+    &:nth-of-type(3) {
+      transform: translateY(-15px) rotate(45deg);
+      @include mq_s() {
+        transform: translateY(-14px) rotate(45deg);
+      }
+    }
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}

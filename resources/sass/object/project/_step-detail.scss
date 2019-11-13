@@ -1,0 +1,199 @@
+// -----------------------------------------------------------------
+// base
+// -----------------------------------------------------------------
+.p-step_detail {
+  text-align: left;
+  @include mq_s() {
+    margin: 5% auto 10% auto;
+  }
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    @include mq_s() {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  &__title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    @include mq_s() {
+      display: block;
+      margin: 3% 0 5% 0;
+    }
+    &__text {
+      font-size: 1.3em;
+      width: 100%;
+      margin-top: 5px;
+      @include mq_s() {
+        font-size: 1.2em;
+      }
+    }
+  }
+  &__creator {
+    text-align: center;
+    width: 35%;
+    @include mq_s() {
+      width: 30%;
+      line-height: 1.3;
+    }
+    span {
+      display: block;
+      @include mq_s() {
+        font-size: .9em;
+      }
+    }
+    &-title {
+      &__text {
+        font-size: 1.1em;
+        margin: 35% 0 10px 0;
+        display: block;
+        text-align: center;
+      }
+    }
+    &-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 40px;
+      margin: 1% 0;
+      @include mq_s() {
+        margin: 0;
+      }
+    }
+  }
+  &__middle {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    @include mq_s() {
+      justify-content: space-between;
+      width: 100%;
+    }
+    p {
+      margin-right: 1%;
+    }
+  }
+  &__box {
+    width: 100%;
+    overflow: hidden;
+    &__item {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 2%;
+      background: $gray_blue;
+      color: #fff;
+      border-radius: 4px;
+      box-shadow: $shadow;
+      width: 90%;
+      box-sizing: border-box;
+      margin: 4% auto;
+      position: relative;
+      font-size: 1.1em;
+      @include mq_s() {
+        width: 100%;
+        font-size: 1em;
+        padding: 3%;
+      }
+      .far, .fas {
+        font-size: 1.2em;
+        margin-right: 10px;
+      }
+      &--active {
+        background: $blue;
+      }
+      &__label {
+        margin-left: 1%;
+        @include mq_s() {
+          margin-left: 0;
+        }
+      }
+      &__arrow {
+        position: absolute;
+        right: 20px;
+        @include mq_s() {
+          right: 10px;
+        }
+      }
+      &:after {
+        content: '';
+        width: 30px;
+        height: 50px;
+        background: $gray_blue;
+        position: absolute;
+        bottom: -50px;
+        opacity: .9;
+      }
+      &:last-of-type:after {
+        display: none;
+      }
+    }
+    &__charenge-link {
+      .c-btn {
+        float: right;
+        margin-right: 5%;
+        @include mq_s() {
+          margin-right: 0;
+          margin-top: 5%;
+        }
+      }
+    }
+    &__back-link {
+      margin-left: 5%;
+      margin-top: 11%;
+      display: block;
+      @include mq_s() {
+        margin-left: 0;
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+
+// -----------------------------------------------------------------
+// 子STEP詳細
+// -----------------------------------------------------------------
+.l-main__child-detail {
+  .p-step_detail {
+    &__top {
+      margin: 0 5%;
+      @include mq_s() {
+        margin: 0;
+      }
+    }
+    &__box {
+      &__text {
+        margin: 0 5% 5% 5%;
+        padding: 3%;
+        box-sizing: border-box;
+        border: $navy solid 2px;
+        border-radius: 4px;
+        @include mq_s() {
+          margin: 0 0 5% 0;
+        }
+      }
+      &__back-link {
+        @include mq_s() {
+          margin-top: 11%;
+        }
+      }
+      &__item {
+        margin: 4% auto 2% auto;
+        @include mq_s() {
+          margin: 0 auto 4% auto;
+        }
+      }
+    }
+  }
+}

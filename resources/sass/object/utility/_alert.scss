@@ -1,0 +1,11 @@
+.alert {
+  position: absolute;
+  top: 0;
+  background: rgba(227, 204, 204, .9);
+  width: 100%;
+  color: $pink;
+  text-align: center;
+  padding: 1%;
+  box-sizing: border-box;
+  z-index: 3;
+}

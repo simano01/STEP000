@@ -1,0 +1,172 @@
+// -----------------------------------------------------------------
+// base
+// -----------------------------------------------------------------
+.p-profile {
+  width: 25%;
+  text-align: center;
+  @include mq_m_on() {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  @include mq_m() {
+    width: 90%;
+    padding: 5%;
+  }
+  &__img {
+    width:100px;
+    height: 100px;
+    border-radius: 200px;
+    margin: 0 auto;
+    display: block;
+    border: $navy solid 2px;
+    background: #fff;
+    @include mq_m_on() {
+      height: auto;
+    }
+    @include mq_s() {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  &__detail-img {
+    width: 200px;
+    margin: 0;
+    height: auto;
+    @include mq_s() {
+      margin: 0 auto 5% auto;
+    }
+  }
+  &__name {
+    margin: 10% 0 5% 0;
+    @include mq_s() {
+      margin: 5% 0;
+      text-align: left;
+    }
+  }
+  &__introduction {
+    margin-bottom: 10%;
+    text-align: left;
+    background: $light_blue;
+    padding: 3%;
+    border-radius: 4px;
+    @include mq_m_on() {
+      width: 65%;
+      margin-bottom: 3%;
+    }
+    @include mq_m() {
+      background: $light_blue;
+      border-radius: 5px;
+      padding: 3%;
+      box-sizing: border-box;
+    }
+    @include mq_s() {
+      padding: 5%;
+    }
+  }
+  &__sp_imgbox {
+    @include mq_m_on() {
+      width: 30%;
+      margin-right: 5%;
+    }
+  }
+  &__link {
+    text-decoration: underline;
+  }
+}
+
+
+// -----------------------------------------------------------------
+// プロフィール詳細
+// -----------------------------------------------------------------
+.p-prf_detail {
+  width: 90%;
+  margin: 3% auto;
+  padding: 2% 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  @include mq_s() {
+    border: $navy solid 2px;
+    border-radius: 4px;
+    background: #fff;
+    padding: 4%;
+    text-align: center;
+    margin: 5% auto 10% auto;
+  }
+  &__box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    @include mq_s() {
+      display: block;
+    }
+    &__name {
+      margin: 0 0 2% 1%;
+      font-size: 1.3em;
+      width: 100%;
+    }
+    &__icon {
+      margin-left: 2%;
+      margin-right: 1%;
+      font-size: 1.1em;
+    }
+    &__num {
+      border: $navy solid 2px;
+      padding: 0 .5%;
+      border-radius: 8px;
+      background: #fff;
+      position: relative;
+      top: -1px;
+      left: -2px;
+      display: inline-block;
+      &:before, &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        @include mq_s() {
+          display: none
+        }
+      }
+      &:before {
+        left: -17px;
+        margin-top: -8px;
+        border: 8px solid transparent;
+        border-right: 10px solid #FFF;
+        z-index: 2;
+      }
+      &:after {
+        left: -21px;
+        margin-top: -9px;
+        border: 9px solid transparent;
+        border-right: 11px solid $navy;
+        z-index: 1;
+      }
+    }
+    &__introduction {
+      border: $navy solid 2px;
+      padding: 2%;
+      border-radius: 4px;
+      background: #fff;
+      margin-left: 5%;
+      @include mq_s() {
+        border: none;
+        background: $light_blue;
+        margin: 0 auto;
+        padding: 4%;
+      }
+    }
+  }
+}
+
+
+// -----------------------------------------------------------------
+// マイページ
+// -----------------------------------------------------------------
+.l-main__mypage .p-profile__img {
+  width: 200px;
+  height: 200px;
+  @include mq_s() {
+    width: 200px;
+    height: 200px;
+  }
+}

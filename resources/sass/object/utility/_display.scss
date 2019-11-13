@@ -1,0 +1,44 @@
+.u-pc_none {
+  display: none;
+  @include mq_m() {
+    display: block;
+  }
+}
+
+.u-md_on_none {
+  display: block;
+  @include mq_m_on() {
+    display: none;
+  }
+}
+
+.u-md_none {
+  display: block;
+  @include mq_m() {
+    display: none;
+  }
+}
+
+.u-sp_none {
+  display: block;
+  @include mq_s() {
+    display: none;
+  }
+}
+
+.u-md_block {
+  display: none;
+  @include mq_m_on() {
+    display: block;
+  }
+  @include mq_s() {
+    display: none;
+  }
+}
+
+.u-sp_block {
+  display: none;
+  @include mq_s() {
+    display: block;
+  }
+}

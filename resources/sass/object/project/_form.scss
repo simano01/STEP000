@@ -1,0 +1,220 @@
+// -----------------------------------------------------------------
+// base
+// -----------------------------------------------------------------
+.p-form {
+  width: 50%;
+  margin: 5% auto 10% auto;
+  border: $navy solid 2px;
+  border-radius: 4px;
+  background: #fff;
+  padding: 3% 6%;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  @include mq_m() {
+    width: 70%;
+  }
+  @include mq_s() {
+    width: 90%;
+    margin: 8% auto 10% auto;
+    padding: 0 6% 10% 6%;
+    border: none;
+    background: $light_blue;
+  }
+  .counter-container {
+    text-align: right;
+  }
+  &__title {
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    @include mq_s() {
+      text-align: center;
+      &:after {
+        content: '';
+        width: 50px;
+        display: block;
+        margin: 5px auto 20px auto;
+        border: solid 2px $emerald;
+        border-radius: 3px;
+      }
+    }
+  }
+  &__input {
+    background: $light_blue;
+    padding: 3%;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 5% auto 1% auto;
+    border-radius: 4px;
+    display: block;
+    font-size: $default;
+    border: none;
+    @include mq_s() {
+      margin-bottom: 2%;
+      background: #fff;
+      border: $navy solid 2px;
+    }
+  }
+  &__remember {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 5%;
+    &__checkbox {
+      font-size: $default;
+      margin-bottom: 1.3%;
+    }
+  }
+  &__pass-remind {
+    text-decoration: underline;
+    position: absolute;
+    bottom: 10%;
+    @include mq_s() {
+      bottom: 4%;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &__select {
+    height: 40px;
+  }
+  &__child-step {
+    &__title {
+      margin-top: 5%;
+    }
+    &__box {
+      position: relative;
+      @include mq_s() {
+        &:first-of-type {
+          width: 90%;
+          margin: 0 0 0 auto;
+        }
+      }
+      &__label {
+        width: 27px;
+        height: 27px;
+        border-radius: 30px;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 1.1em;
+        background: $navy;
+        color: #fff;
+        position: absolute;
+        left: -35px;
+        margin: 0 !important
+      }
+      &__item {
+        label:first-of-type {
+          margin-top: 1% !important;
+        }
+      }
+    }
+  }
+  &__contact-text {
+    text-align: center;
+    margin-bottom: 5%;
+    @include mq_m() {
+      text-align: left;
+      margin-bottom: 8%;
+    }
+  }
+  &__is-invalid {
+    background: rgba(255, 225, 225, 0.9);
+  }
+  &__invalid-feedback {
+    color: #ff6666;
+  }
+}
+
+
+// -----------------------------------------------------------------
+// STEP登録、お問い合わせ画面のform
+// -----------------------------------------------------------------
+.l-main__step-register .p-form,
+.l-main__contact .p-form {
+  &__input {
+    margin: 1% auto 0 auto;
+  }
+  label {
+    display: block;
+    margin-top: 5%;
+  }
+}
+
+
+// -----------------------------------------------------------------
+// STEP一覧のform
+// -----------------------------------------------------------------
+.l-main__step-list .p-form {
+  &__input {
+    width: 50%;
+    margin: 0 4% 0 0;
+    @include mq_s() {
+      width: 80%;
+      background: #fff;
+      margin: 1% 0 4% 0;
+      border: $navy solid 2px;
+      height: auto;
+    }
+  }
+}
+
+
+// -----------------------------------------------------------------
+// プロフィール編集のform
+// -----------------------------------------------------------------
+.l-main__profEdit .p-form {
+  &__input {
+    margin: 1% auto 0 auto;
+  }
+  label {
+    display: block;
+    margin-top: 5%;
+  }
+  .area-drop{
+    margin: 1% auto 5% auto;
+    width: 204px;
+    height: 204px;
+    background: #fff;
+    color: $navy;
+    text-align: center;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 100px;
+    border: $navy solid 2px;
+  }
+  .input-file{
+    opacity:0;
+    width:200px;
+    height:200px;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index: 3;
+  }
+  .prev-img{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index: 2;
+  }
+  .img_drag {
+    display: block;
+    padding-top: 35%;
+    opacity: .8;
+    z-index: 1;
+  }
+}
+
+
+// -----------------------------------------------------------------
+// パスリマインドのメール送信form
+// -----------------------------------------------------------------
+.l-main__pass-email .p-form__title {
+  margin-bottom: 5%;
+}
