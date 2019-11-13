@@ -13,11 +13,11 @@ class InsertDataAchievementTimeTable extends Migration
      */
     public function up()
     {
-        Schema::table('achievemet_time', function (Blueprint $table) {
+        Schema::table('achievement_time', function (Blueprint $table) {
           //
         });
 
-        DB::table('achievemet_time')->insert([
+        DB::table('achievement_time')->insert([
             ['time' => '3時間未満'],
             ['time' => '5時間'],
             ['time' => '10時間'],
@@ -42,7 +42,7 @@ class InsertDataAchievementTimeTable extends Migration
      */
     public function down()
     {
-        Schema::table('achievemet_time', function (Blueprint $table) {
+        Schema::table('achievement_time', function (Blueprint $table) {
             //
         });
     }
