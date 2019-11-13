@@ -10,7 +10,7 @@
         <br class="u-md_none">下記項目にご記入の上ご連絡ください。</p>
 
       <label for="">お名前</label>
-      <input type="text" name="name" class="p-form__input @error('name') p-form__is_invalid @enderror" value="{{ old('name') }}">
+      <input type="text" name="name" class="p-form__input @error('name') p-form__is-invalid @enderror" value="{{ old('name') }}">
       @error('name')
           <span class="p-form__invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
@@ -18,7 +18,7 @@
       @enderror
 
       <label for="">メールアドレス</label>
-      <input type="text" name="email" class="p-form__input @error('email') p-form__is_invalid @enderror" value="{{ old('email') }}">
+      <input type="text" name="email" class="p-form__input @error('email') p-form__is-invalid @enderror" value="{{ old('email') }}">
       @error('email')
           <span class="p-form__invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
@@ -26,7 +26,7 @@
       @enderror
 
       <label for="">お問い合わせ内容</label>
-      <textarea name="text" class="p-form__input @error('text') p-form__is_invalid @enderror" rows="8" cols="80">{{ old('text') }}</textarea>
+      <textarea name="text" class="p-form__input @error('text') p-form__is-invalid @enderror" rows="8" cols="80">{{ old('text') }}</textarea>
       @error('text')
           <span class="p-form__invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
