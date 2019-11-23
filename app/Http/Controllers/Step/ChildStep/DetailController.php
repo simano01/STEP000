@@ -16,7 +16,7 @@ class DetailController extends Controller
     // 画面表示
     public function view($id, $child_step_id) {
       // GETパラメータが数字かどうかチェックする
-      if(!ctype_digit($id) && !ctype_digit($child_step_id)) {
+      if(!ctype_digit($id) || !ctype_digit($child_step_id)) {
         return redirect('/mypage')->with('flash_message', '不正なアクセスが行われました。');
       }
 
