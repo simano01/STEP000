@@ -474,7 +474,6 @@ a:hover {
   border-radius: 30px;
   display: block;
   margin: 5% auto 0 auto;
-  display: none;
 }
 
 .c-delete_step-btn:before {
@@ -489,6 +488,10 @@ a:hover {
 
 .c-delete_step-btn:hover {
   cursor: pointer;
+}
+
+.c-delete_step-btn:disabled {
+  cursor: not-allowed;
 }
 
 .c-two_colum {
@@ -1335,6 +1338,7 @@ a:hover {
   margin: 4% auto;
   position: relative;
   font-size: 1.1em;
+  z-index: 2;
 }
 
 @media screen and (max-width: 414px) {
@@ -1376,20 +1380,6 @@ a:hover {
   }
 }
 
-.p-step_detail__box__item:after {
-  content: "";
-  width: 30px;
-  height: 50px;
-  background: #6f85a8;
-  position: absolute;
-  bottom: -50px;
-  opacity: 0.9;
-}
-
-.p-step_detail__box__item:last-of-type:after {
-  display: none;
-}
-
 .p-step_detail__box__charenge-link .c-btn {
   float: right;
   margin-right: 5%;
@@ -1418,6 +1408,29 @@ a:hover {
   text-decoration: underline;
 }
 
+.p-step_detail__box__link {
+  position: relative;
+  margin: 4% auto;
+  display: block;
+}
+
+.p-step_detail__box__link::after {
+  content: "";
+  width: 50px;
+  height: 30px;
+  background: #999;
+  display: block;
+  transform: rotateZ(90deg);
+  opacity: 0.7;
+  position: absolute;
+  bottom: -39px;
+  left: 100px;
+}
+
+.p-step_detail__box__link-wrap a:last-of-type::after {
+  display: none;
+}
+
 .l-main__child-detail .p-step_detail__top {
   margin: 0 5%;
 }
@@ -1434,6 +1447,7 @@ a:hover {
   box-sizing: border-box;
   border: #224272 solid 2px;
   border-radius: 4px;
+  background: #fff;
 }
 
 @media screen and (max-width: 414px) {
@@ -1780,13 +1794,13 @@ a:hover {
 .alert {
   position: absolute;
   top: 0;
-  background: rgba(227, 204, 204, 0.9);
+  background: rgba(0, 169, 157, 0.9);
   width: 100%;
-  color: #ce6c53;
+  color: #fff;
   text-align: center;
   padding: 1%;
   box-sizing: border-box;
-  z-index: 3;
+  z-index: 10;
 }
 
 .u-category {

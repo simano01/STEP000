@@ -61,8 +61,35 @@ class EditController extends Controller
             'step_id' => $step->id,
             'num' => $i,
           ]);
+          if(!(ChildStep::where('step_id', $id)->where('num', $i))->first()) { // DBにデータがなければ新規登録
+              $child_step = new ChildStep;
+              $child_step->title = $request->child_title[$i];
+              $child_step->description = $request->description[$i];
+              $child_step->step_id = $step->id;
+              $child_step->num = $i;
+              Auth::user()->child_steps()->save($child_step);
+          }
+
+          // childstepテーブルのstep_id $idに一致するデータ全て取得→数を数える
+          // $requestの数かぞえて、その差分だけ、DBの子ステップidが高い順に削除する
+          
         $i++;
       }
+
+      // $idと一致する子STEPとその件数を取得
+      $child_step = ChildStep::where('step_id', $id);
+      $child_step_count = $child_step->count();
+
+      // $requestの子STEP数を数える
+      $re_child_step = count($request->num);
+
+      $delete_num = $child_step_count - $re_child_step;
+
+      if($delete_num > 0) {
+        ChildStep::where('step_id', $id)->orderBy('id', 'desc')->limit($delete_num)->delete();
+      }
+
+
 
       return redirect('/mypage')->with('flash_message', '変更しました！');
     }

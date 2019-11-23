@@ -36,7 +36,7 @@
 
             <div class="js-count-container">
               <label for="">内容</label>
-              <textarea name="description[]" class="p-form__input js-count-description js-count-text" required rows="8" cols="80">{{ child_step.description}}</textarea>
+              <textarea name="description[]" class="p-form__input js-count-description js-count-text" required rows="8" cols="80">{{ child_step.description }}</textarea>
               <div class="counter-container"><span class="js-show-count-text">0</span>/255</div>
             </div>
 
@@ -45,7 +45,7 @@
         </div>
       </div>
 
-    <button type="button" name="button" class="c-delete_step-btn" @click="deleteForm()"></button>
+    <button type="button" name="button" class="c-delete_step-btn js-delete_step-btn" @click="deleteForm()"></button>
     <button type="button" name="button" class="c-add_step-btn" @click="addForm()"></button>
 
     <div v-if="!(step)">
@@ -82,7 +82,8 @@
         $('.p-form__child-step__box:last').append(
           '<div class="p-form__child-step__box"><label for="" class="p-form__child-step__box__label">'+ this.num + '</label><div class="p-form__child-step__box__item mt7"><div class="js-count-container"><label for="">タイトル</label><input type="text" name="child_title[]" class="p-form__input js-count-title js-count-text50" required><div class="counter-container"><span class="js-show-count-text">0</span>/50</div></div><div class="js-count-container"><label for="">内容</label><textarea name="description[]" class="p-form__input js-count-description js-count-text255" required="required" rows="8" cols="80"></textarea><div class="counter-container"><span class="js-show-count-text">0</span>/255</div></div><input type="hidden" name="num[]" value="">'
         )
-        $('.c-delete_step-btn').css('display', 'block')
+
+        $('.js-delete_step-btn').prop('disabled', false);
 
         this.lengthCheck50();
         this.lengthCheck255();
@@ -90,10 +91,14 @@
       },
       // 子STEP登録フォーム削除
       deleteForm() {
-        $('.p-form__child-step__box:last').remove()
-        this.num -= 1
-        if(this.num === 2) {
-          $('.c-delete_step-btn').css('display', 'none')
+        var lastNum = $('.p-form__child-step__box__label:last').html()
+        this.num = Number(lastNum)
+        if (this.num <= 1) {
+          $('.js-delete_step-btn').prop('disabled', true);
+        } else {
+          $('.js-delete_step-btn').prop('disabled', false);
+          $('.p-form__child-step__box:last').remove();
+          console.log(this.num);
         }
       },
       // 文字数カウント（内容）

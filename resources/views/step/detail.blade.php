@@ -21,20 +21,22 @@
       </div>
 
       <div class="p-step_detail__box">
-        @foreach ($child_steps as $child_step)
-        <a href="{{ route('childStep.detail', [$step->id, $child_step->id]) }}">
-          <div class="p-step_detail__box__item @if ($clears > $child_step->num) echo p-step_detail__box__item--active @elseif (!isset($charenge)) echo p-step_detail__box__item--active @endif">
-            @if ($clears > $child_step->num)
-              <i class="far fa-check-square p-step_detail__box__item__check"></i>
-            @else
-              <i class="far fa-square p-step_detail__box__item__check"></i>
-            @endif
-            <span class="p-step_detail__box__item__label">STEP{{ $child_step->num+1 }}：</span>
-            <p class="p-step_detail__box__item__title">{{ $child_step->title }}</p>
-            <i class="fas fa-chevron-circle-right p-step_detail__box__item__arrow"></i>
-          </div>
-        </a>
-        @endforeach
+        <div class="p-step_detail__box__link-wrap">
+          @foreach ($child_steps as $child_step)
+          <a href="{{ route('childStep.detail', [$step->id, $child_step->id]) }}" class="p-step_detail__box__link">
+            <div class="p-step_detail__box__item @if ($clears > $child_step->num)p-step_detail__box__item--active @elseif (!isset($charenge))p-step_detail__box__item--active @endif">
+              @if ($clears > $child_step->num)
+                <i class="far fa-check-square p-step_detail__box__item__check"></i>
+              @else
+                <i class="far fa-square p-step_detail__box__item__check"></i>
+              @endif
+              <span class="p-step_detail__box__item__label">STEP{{ $child_step->num+1 }}：</span>
+              <p class="p-step_detail__box__item__title">{{ $child_step->title }}</p>
+              <i class="fas fa-chevron-circle-right p-step_detail__box__item__arrow"></i>
+            </div>
+          </a>
+          @endforeach
+        </div>
 
         @if ( $user_id === $step->user_id )
           <a href="{{ route('step.edit', $step->id) }}" class="p-step_detail__box__charenge-link">

@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="STEP(ステップ)は、仕事、趣味、学習など様々なカテゴリの'学習手順'と'内容'を投稿できるサービスです。人それぞれのSTEPを元に効率の良く学習を進められます。">
+    <meta name="keywords" content="ステップ, 方法, 学習, step, 効率, 手順, 順番">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -29,10 +31,18 @@
     @endif
 
     <header class="l-header js-float-menu">
-      <a href="{{ asset('/') }}" class="l-header__logo">
-        <h1 class="l-header__logo__text">STEP</h1>
-        <img src="{{ asset('img/header-icon.png') }}" alt="ヘッダーアイコンの階段" class="l-header__logo__img">
-      </a>
+      @guest 
+        <a href="{{ asset('/')  }}" class="l-header__logo">
+          <h1 class="l-header__logo__text">STEP</h1>
+          <img src="{{ asset('img/header-icon.png') }}" alt="ヘッダーアイコンの階段" class="l-header__logo__img">
+        </a>
+      @endguest
+      @auth
+        <a href="{{ asset('/mypage')  }}" class="l-header__logo">
+          <h1 class="l-header__logo__text">STEP</h1>
+          <img src="{{ asset('img/header-icon.png') }}" alt="ヘッダーアイコンの階段" class="l-header__logo__img">
+        </a>
+      @endauth
       <div class="l-header__menu__trigger js-toggle-menu">
         <span></span>
         <span></span>

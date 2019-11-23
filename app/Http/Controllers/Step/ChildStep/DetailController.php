@@ -38,7 +38,7 @@ class DetailController extends Controller
           if($child_step->num === 0) {
             $before_clear = 1;
           }else{
-            $child_step_id -= 1;
+            $child_step->id -= 1;
             $before_clear = Clear::where('step_detail_id', $child_step_id)->where('user_id', $user_id)->first();
           }
 

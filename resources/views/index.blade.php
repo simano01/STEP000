@@ -11,10 +11,17 @@
         <h2 class="p-hero__title__text">STEP</h2>
         <img src="{{ asset('img/header-icon.png') }}" alt="ヘッダーアイコンの階段" class="p-hero__title__img">
       </div>
-      <a href="{{ route('register') }}">
-        <button type="button" name="button" class="c-btn c-btn__primary">つかってみる</button>
-      </a>
-      <a href="{{ route('login') }}"><p class="p-hero__login-link">ログインする</p></a>
+      @guest 
+        <a href="{{ route('register') }}">
+          <button type="button" name="button" class="c-btn c-btn__primary">つかってみる</button>
+        </a>
+        <a href="{{ route('login') }}"><p class="p-hero__login-link">ログインする</p></a>
+      @endguest
+      @auth 
+        <a href="{{ route('mypage') }}">
+          <button type="button" name="button" class="c-btn c-btn__primary">マイページへ</button>
+        </a>
+      @endauth
     </section>
 
     <section class="p-container">
@@ -43,9 +50,11 @@
           </li>
         </ul>
       </div>
-      <a href="{{ route('register') }}">
-        <button type="button" name="button" class="c-btn c-btn__primary">つかってみる</button>
-      </a>
+      @guest 
+        <a href="{{ route('register') }}">
+          <button type="button" name="button" class="c-btn c-btn__primary">つかってみる</button>
+        </a>
+      @endguest 
     </section>
 
   </div>

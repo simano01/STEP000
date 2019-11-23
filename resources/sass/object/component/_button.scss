@@ -92,7 +92,6 @@
   border-radius: 30px;
   display: block;
   margin: 5% auto 0 auto;
-  display: none;
   &:before {
     content: '';
     display: block;
@@ -104,5 +103,8 @@
   }
   &:hover {
     cursor: pointer;
+  }
+  &:disabled {
+    cursor: not-allowed;
   }
 }

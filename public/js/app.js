@@ -1987,17 +1987,21 @@ __webpack_require__.r(__webpack_exports__);
 
       this.num += 1;
       $('.p-form__child-step__box:last').append('<div class="p-form__child-step__box"><label for="" class="p-form__child-step__box__label">' + this.num + '</label><div class="p-form__child-step__box__item mt7"><div class="js-count-container"><label for="">タイトル</label><input type="text" name="child_title[]" class="p-form__input js-count-title js-count-text50" required><div class="counter-container"><span class="js-show-count-text">0</span>/50</div></div><div class="js-count-container"><label for="">内容</label><textarea name="description[]" class="p-form__input js-count-description js-count-text255" required="required" rows="8" cols="80"></textarea><div class="counter-container"><span class="js-show-count-text">0</span>/255</div></div><input type="hidden" name="num[]" value="">');
-      $('.c-delete_step-btn').css('display', 'block');
+      $('.js-delete_step-btn').prop('disabled', false);
       this.lengthCheck50();
       this.lengthCheck255();
     },
     // 子STEP登録フォーム削除
     deleteForm: function deleteForm() {
-      $('.p-form__child-step__box:last').remove();
-      this.num -= 1;
+      var lastNum = $('.p-form__child-step__box__label:last').html();
+      this.num = Number(lastNum);
 
-      if (this.num === 2) {
-        $('.c-delete_step-btn').css('display', 'none');
+      if (this.num <= 1) {
+        $('.js-delete_step-btn').prop('disabled', true);
+      } else {
+        $('.js-delete_step-btn').prop('disabled', false);
+        $('.p-form__child-step__box:last').remove();
+        console.log(this.num);
       }
     },
     // 文字数カウント（内容）
@@ -37539,7 +37543,7 @@ var render = function() {
         ),
     _vm._v(" "),
     _c("button", {
-      staticClass: "c-delete_step-btn",
+      staticClass: "c-delete_step-btn js-delete_step-btn",
       attrs: { type: "button", name: "button" },
       on: {
         click: function($event) {
@@ -50299,8 +50303,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/simano/Documents/STEP/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/simano/Documents/STEP/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/simano/Documents/WEBサービス/STEP/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/simano/Documents/WEBサービス/STEP/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
