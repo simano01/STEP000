@@ -79,8 +79,8 @@ class EditController extends Controller
       // 差分を計算
       $delete_num = $child_step_count - $re_child_step;
       // 差分だけ子STEPを削除する
-      if($delete_num > 0) {
-        ChildStep::where('step_id', $id)->orderBy('id', 'desc')->limit(1)->delete();
+      if($delete_num = 0) {
+        ChildStep::where('step_id', $id)->orderBy('id', 'desc')->limit($delete_num)->delete();
       }
 
       return redirect('/mypage')->with('flash_message', '変更しました！');
