@@ -1427,6 +1427,24 @@ a:hover {
   left: 100px;
 }
 
+@media screen and (max-width: 1024px) {
+  .p-step_detail__box__link::after {
+    left: 80px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .p-step_detail__box__link::after {
+    left: 60px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .p-step_detail__box__link::after {
+    display: none;
+  }
+}
+
 .p-step_detail__box__link-wrap a:last-of-type::after {
   display: none;
 }

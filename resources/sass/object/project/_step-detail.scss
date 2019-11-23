@@ -161,6 +161,15 @@
         position: absolute;
         bottom: -39px;
         left: 100px;
+        @include mq_l() {
+          left: 80px;
+        }
+        @include mq_m() {
+          left: 60px;
+        }
+        @include mq_s() {
+          display: none;
+        }
       }
       &-wrap {
         a:last-of-type {
