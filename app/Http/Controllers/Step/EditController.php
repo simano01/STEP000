@@ -72,15 +72,23 @@ class EditController extends Controller
         $i++;
       }
 
-      // $idと一致する子STEPの件数を取得
+      // // $idと一致する子STEPの件数を取得
+      // $child_step_count = ChildStep::where('step_id', $id)->count();
+      // // $requestの子STEP数を数える
+      // $re_child_step = count($request->num);
+      // // 差分を計算
+      // $delete_num = $child_step_count - $re_child_step;
+      // // 差分だけ子STEPを削除する
+      // if($delete_num > 0) {
+      //   ChildStep::where('step_id', $id)->orderBy('id', 'desc')->take($delete_num)->delete();
+      // }
+
       $child_step_count = ChildStep::where('step_id', $id)->count();
-      // $requestの子STEP数を数える
       $re_child_step = count($request->num);
-      // 差分を計算
-      $delete_num = $child_step_count - $re_child_step;
-      // 差分だけ子STEPを削除する
-      if($delete_num > 0) {
-        ChildStep::where('step_id', $id)->orderBy('id', 'desc')->take($delete_num)->delete();
+      for ($i = 0; $i < $child_step_count; $i++) {
+        if ($i >= $re_child_step) {
+          ChildStep::where('step_id', $id)->where('num', $i)->delete();
+        }
       }
 
       return redirect('/mypage')->with('flash_message', '変更しました！');
